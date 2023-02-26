@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\SubForm;
 use App\Http\Controllers\controlerInv;
 use App\Http\Controllers\viewcontroller;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,6 +22,11 @@ use App\Http\Controllers\viewcontroller;
 // });
 
 Route::get('index/{prenom?}/{nom?}/{sexe?}/{email?}/',[SubForm::class,'index'])->name('index');
-Route::post('/afficher',[SubForm::class,'afficher']);
+Route::post('/afficher',[viewcontroller::class,'afficher']);
 // Route::get('/{page}', controlerInv::class);
-Route::get('/formre',[viewcontroller::class,'viewcontroller']);
+Route::get('/notes',[viewcontroller::class,'notes'])->name('all'); 
+Route::get('/notes/statistiques',[viewcontroller::class,'notescolored'])->name('all'); 
+Route::get('/home',function() {
+    return 'Bonjour laravel';
+});
+

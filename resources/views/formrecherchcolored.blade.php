@@ -11,9 +11,16 @@
     <input type="text" name="noterecherche" >
     <input type="button" value="Rechercher">
     <table border="1">
-        <thead><th>Name</th><th>notes</th></thead><tbody>
+        <thead><th>Name</th><th>notes</th></thead>
+        <tbody>
 @foreach ($note as $n=>$val)
-        <tr><td>{{$n}}</td><td>{{$val}}</td></tr>
+@if($val>10)
+    <tr style="background-color: lightgreen;"><td>{{$n}}</td><td>{{$val}}</td></tr>
+@elseif (8<=$val && $val<=10)
+    <tr style="background-color: orange;"><td>{{$n}}</td><td>{{$val}}</td></tr>
+@else
+    <tr style="background-color: red;"><td>{{$n}}</td><td>{{$val}}</td></tr>
+@endif
 @endforeach
 </tbody>
 </table>
